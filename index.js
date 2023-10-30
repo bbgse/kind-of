@@ -1,6 +1,7 @@
 var toString = Object.prototype.toString;
+var {isArray} = Array;
 
-module.exports = function kindOf(val) {
+export default function kindOf(val) {
   if (val === void 0) return 'undefined';
   if (val === null) return 'null';
 
@@ -69,11 +70,6 @@ function ctorName(val) {
   return typeof val.constructor === 'function' ? val.constructor.name : null;
 }
 
-function isArray(val) {
-  if (Array.isArray) return Array.isArray(val);
-  return val instanceof Array;
-}
-
 function isError(val) {
   return val instanceof Error || (typeof val.message === 'string' && val.constructor && typeof val.constructor.stackTraceLimit === 'number');
 }
@@ -93,8 +89,8 @@ function isRegexp(val) {
     && typeof val.global === 'boolean';
 }
 
-function isGeneratorFn(name, val) {
-  return ctorName(name) === 'GeneratorFunction';
+function isGeneratorFn(val) {
+  return ctorName(val) === 'GeneratorFunction';
 }
 
 function isGeneratorObj(val) {

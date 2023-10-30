@@ -12,7 +12,8 @@
     "laggingreflex (https://github.com/laggingreflex)",
     "Miguel Mota (https://miguelmota.com)",
     "Peter deHaan (http://about.me/peterdehaan)",
-    "tunnckoCore (https://i.am.charlike.online)"
+    "tunnckoCore (https://i.am.charlike.online)",
+    "Stephen Murphy (https://github.com/Stephen-Murphy)"
   ],
   "repository": "jonschlinkert/kind-of",
   "bugs": {
@@ -20,21 +21,24 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "main": "index.js",
+  "type": "module",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=0.16"
   },
   "scripts": {
     "test": "mocha",
-    "prepublish": "browserify -o browser.js -e index.js -s index --bare"
+    "test-ts": "tsc && node ./test/typescript"
   },
   "devDependencies": {
+    "@types/node": "^10.12.9",
     "benchmarked": "^2.0.0",
-    "browserify": "^14.4.0",
     "gulp-format-md": "^2.0.0",
-    "mocha": "^10.2.0",
+    "mocha": "^4.0.1",
+    "typescript": "^5.2.2",
     "write": "^1.0.3"
   },
   "keywords": [
